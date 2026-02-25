@@ -34,8 +34,9 @@ async function bootstrap() {
     process.exit(1)
   }
 
-  await app.listen(3001)
-  console.log('🚀 Server running on http://localhost:3001')
+  const port = Number(process.env.PORT) || 3001
+  await app.listen(port)
+  console.log(`🚀 Server running on port ${port}`)
 
   const vnpayReady =
     (process.env.VNPAY_TMN_CODE || process.env.tanCode) &&
